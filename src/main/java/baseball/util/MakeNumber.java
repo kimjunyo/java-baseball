@@ -8,11 +8,16 @@ import java.util.Random;
 
 public class MakeNumber {
     public static List<Integer> makeRandomNumber() {
-        List<Integer> computerNum = new ArrayList<>();
+        int computerFirst = 0;
+        int computerSecond = 0;
+        int computerThird = 0;
         Random random = new Random();
-        int computerFirst = random.nextInt(9) + 1;
-        int computerSecond = random.nextInt(9) + 1;
-        int computerThird = random.nextInt(9) + 1;
+        while (computerFirst == computerSecond || computerFirst == computerSecond || computerSecond == computerThird) {
+            computerFirst = random.nextInt(9) + 1;
+            computerSecond = random.nextInt(9) + 1;
+            computerThird = random.nextInt(9) + 1;
+        }
+        List<Integer> computerNum = new ArrayList<>();
         computerNum.add(computerFirst);
         computerNum.add(computerSecond);
         computerNum.add(computerThird);
